@@ -9,10 +9,7 @@ public class Home {
     }
     public void add_to_names(String value){
         first_names.add(value);
-        System.out.print(num_people_in_house);
         num_people_in_house++;
-        System.out.print("THIS IS BEING CALLED");
-        System.out.println(num_people_in_house);
 
     }
     public String get_all_home_info(){
