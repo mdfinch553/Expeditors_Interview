@@ -8,10 +8,10 @@ Home address: 234 2nd ave tacoma wa Number of people in home: 2
 
 Occupants over 18:
 
-Dave Smith 123 main st seattle wa 43 
-Alice Smith 123 main st seattle wa 45 
-Bob Williams 234 2nd ave tacoma wa 26 
 Carol Johnson 234 2nd ave seattle wa 67 
-Eve Smith 234 2nd ave tacoma wa 25 
 Frank Jones 234 2nd ave tacoma fl 23 
+Alice Smith 123 main st seattle wa 45 
+Dave Smith 123 main st seattle wa 43 
+Eve Smith 234 2nd ave tacoma wa 25 
+Bob Williams 234 2nd ave tacoma wa 26 
 

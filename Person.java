@@ -24,6 +24,9 @@ public class Person {
     public void set_last_name(String name){
         last_name = name;
     }
+    public String get_last_name(){
+        return last_name;
+    }
     public void set_address(String value){
         address = value;
     }
@@ -62,5 +65,23 @@ public class Person {
         person_info.append(age.toString());
         person_info.append(" ");
         return (person_info.toString());
+    }
+    public Boolean compare_to_other_person(Person other_person){
+        String other_last_name = other_person.get_last_name();
+        if (last_name.compareTo(other_last_name) > 0){
+            return true; 
+        }
+        else if (last_name.compareTo(other_last_name) == 0){
+            String other_first_name = other_person.get_first_name();
+            if (first_name.compareTo(other_first_name) > 0){
+                return true;
+            }
+            else {
+                return false; 
+            }
+        }
+        else {
+            return false; 
+        }
     }
 }

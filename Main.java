@@ -1,9 +1,8 @@
-import java.util.Scanner;
 import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static boolean isInteger(String word){
+    static boolean isInteger(String word){
         try {
             Integer.parseInt(word);
             return true;
@@ -11,6 +10,26 @@ public class Main {
             
         }
         return false;
+    }
+    static int partition(ArrayList<Person> people, int low_index, int high_index){
+        Person pivot_point = people.get(high_index);
+        int i = low_index - 1;
+        for (int j = low_index; j < high_index;  j++){
+            Person curr_instance = people.get(j);
+            if (pivot_point.compare_to_other_person(curr_instance)){
+                i++; 
+                Collections.swap(people, i, j);
+            }
+        }
+        Collections.swap(people, i + 1, high_index);
+        return (i + 1);
+    }
+   static void quicksort_people(ArrayList<Person> people, int low_index, int high_index){
+        if (low_index < high_index){
+            int partition_index = partition(people, low_index, high_index);
+            quicksort_people(people, low_index, partition_index - 1);
+            quicksort_people(people, partition_index + 1, high_index);
+        }
     }
     public static void main(String[] args) throws IOException {
         //make an array to represent each person in the file 
@@ -93,9 +112,9 @@ public class Main {
             all_home_info.append(house_info);
             all_home_info.append("\n");
         }
-
         System.out.println(all_home_info);
 
+        quicksort_people(people, 0, people.size() - 1);
         StringBuilder all_person_info = new StringBuilder();
         for (int i = 0; i < people.size(); i++) {
             Integer age = people.get(i).get_age();
