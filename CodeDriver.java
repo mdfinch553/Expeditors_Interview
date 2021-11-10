@@ -1,17 +1,20 @@
 import java.io.*;
 import java.util.*;
-
+/**
+ * Object that runs the program 
+ */
 public class CodeDriver {
+    /**
+     * Public constructor. Runs the program when and instance of CodeDriver is created by main 
+     */
     public CodeDriver() throws IOException {
         //make an array to represent each person in the file 
         ArrayList<Person> people = new ArrayList<Person>();
-        //open scanner to read through input file, use "" delimiter to seperate words
-        Scanner sc = new Scanner(new FileReader("input.txt")).useDelimiter("\\s*\"\\s*");
 
         //hashtable to store unique house addresses
         Hashtable<String, Home> house_addresses = new Hashtable<>();
 
-        ReadFromFile file_reader = new ReadFromFile(sc);
+        ReadFromFile file_reader = new ReadFromFile();
         people = file_reader.get_list_of_people_from_file();
 
         HouseAddressTable households = new HouseAddressTable(people, house_addresses);

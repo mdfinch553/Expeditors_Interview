@@ -1,21 +1,44 @@
+import java.io.*;
 import java.util.*;
 
 public class ReadFromFile {
+    /**
+     * Array list containing people from input file 
+     */
     ArrayList<Person> people;
+    /**
+     * scanner for reading file
+     */
     Scanner sc;
-    public ReadFromFile(Scanner scan){
+
+    /**
+     * Default Constructor
+     */
+    public ReadFromFile() throws IOException{
         people = new ArrayList<Person>();
-        sc = scan;
+        //open scanner to read through input file, use "" delimiter to seperate words
+        sc = new Scanner(new FileReader("input.txt")).useDelimiter("\\s*\"\\s*");
     }
+
+    /**
+     * Checks to see if word can be parsed to integer
+     * @param word word to parse to integer
+     * @return bool 
+     */
     boolean isInteger(String word){
         try {
             Integer.parseInt(word);
             return true;
         } catch (NumberFormatException e) {
-            
+            System.out.println("cannot be parsed to integer");
         }
         return false;
     }
+
+    /**
+     * Reads through file and builds an ArrayList of each person 
+     * @return list of Persons extracted from fule 
+     */
     public ArrayList<Person> get_list_of_people_from_file(){
         Person p = new Person(); 
         //p counter is used to keep track of which attribute is being checked
